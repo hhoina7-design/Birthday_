@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd1dc, #ff9aa2);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Overlay */
+.vibe-overlay {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 40%),
+    linear-gradient(135deg, rgba(255,105,180,0.35), rgba(255,182,193,0.35));
+  z-index: -1;
+  animation: glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Sections */
+.section {
+  padding: 50px 20px;
+  animation: fadeIn 2s ease;
+}
+
+/* HOME */
+.home {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Particles */
+.particles::before {
+  content: "✨ 💖 ✨ 💕 ✨ 💗 ✨";
+  position: absolute;
+  bottom: -20%;
+  left: 20%;
+  font-size: 22px;
+  opacity: 0.6;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-130vh); }
+}
+
+/* Side Photos */
+.side-photos {
+  position: absolute;
+  top: 28%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-photos img {
+  width: 100px;
+  border-radius: 15px;
+  transform: rotate(-6deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: 0.7s cubic-bezier(.19,1,.22,1);
+}
+
+.side-photos img:hover {
+  transform: scale(1.15) rotate(0deg) translateY(-15px);
+  box-shadow: 0 25px 45px rgba(255,105,180,0.6);
+  z-index: 5;
+}
+
+.side-photos.right img {
+  transform: rotate(6deg);
+}
+
+.side-photos.left { left: 20px; }
+.side-photos.right { right: 20px; }
+
+/* Balloons */
+.balloon {
+  width: 60px;
+  height: 80px;
+  background: pink;
+  border-radius: 50%;
+  position: absolute;
+  animation: float 6s infinite ease-in-out;
+}
+
+.b1 { left: 15%; top: 80%; }
+.b2 { left: 45%; top: 85%; animation-delay: 1s; }
+.b3 { left: 75%; top: 90%; animation-delay: 2s; }
+
+@keyframes float {
+  50% { transform: translateY(-140px); }
+}
+
+/* Candle */
+.candle {
+  width: 20px;
+  height: 60px;
+  background: white;
+  margin: 20px auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+.flame {
+  width: 14px;
+  height: 20px;
+  background: orange;
+  position: absolute;
+  top: -20px;
+  left: 3px;
+  border-radius: 50%;
+  animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(1.1); opacity: 1; }
+}
+
+/* Timeline */
+.timeline {
+  max-width: 600px;
+  margin: auto;
+}
+
+.event {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+}
+
+/* Chat Image */
+.chat-img {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 768px) {
+  .side-photos { display: none; }
+}

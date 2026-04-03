@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Our Gallery 💖</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="bg video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Floating Hearts -->
+  <div class="hearts">
+    <span>💖</span>
+    <span>💗</span>
+    <span>💞</span>
+    <span>💕</span>
+    <span>💘</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">💖 Moments</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- PHOTO SECTION (unchanged) -->
+  <section class="gallery-section">
+    <h2 class="section-title">Photo Section 📸</h2>
+
+    <div class="photo-row four">
+      <div class="media-item"><img src="Img/pic3.jpg"><div class="overlay">Hayeee 💖</div></div>
+      <div class="media-item"><img src="Img/pic4.jpg"><div class="overlay">That Smile 💗</div></div>
+      <div class="media-item"><img src="Img/pic5.jpg"><div class="overlay">You Look Perfect 💖</div></div>
+      <div class="media-item"><img src="Img/pic6.jpg"><div class="overlay">My Fav 💘</div></div>
+    </div>
+
+    <div class="photo-row two-desc">
+      <div class="media-item"><img src="Img/pic1.jpg"><div class="overlay">Kolai Hereko 👀</div></div>
+      <div class="media-item"><img src="Img/pic8.jpg"><div class="overlay">Yo pic bata nai kura suru bhako 💖</div></div>
+
+      <div class="photo-desc">
+        kehi photo haru frame ma xan,<br>
+        kehi moment haru mann bhitra...💗<br><br>
+        yo sabai tasbir bhanda pani,<br>
+        yo bhitra lukeko feeling nai special xa...✨
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION (UPDATED) -->
+  <section class="gallery-section">
+    <h2 class="section-title">Video Section 🎥</h2>
+
+    <div class="video-grid">
+
+      <!-- repeat this block -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video src="Img/vdo1.MOV"></video>
+          <div class="play-btn">▶</div>
+        </div>
+        <p>tha xaina kolai bhaneko timle,<br>tara dherai dherai samjhana 💞</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video src="Img/vdo2.MOV"></video>
+          <div class="play-btn">▶</div>
+        </div>
+        <p>kehi pal record bhayo,<br>kehi pal sadhai ko lagi mann ma base 💖</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video src="Img/vdo5.MP4"></video>
+          <div class="play-btn">▶</div>
+        </div>
+        <p>timro eauta muskan le nai,<br>mero din pura bright banauxa ✨</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video src="Img/vdo4.MOV"></video>
+          <div class="play-btn">▶</div>
+        </div>
+        <p>clip sano hola,<br>tara yaad haru endless xan 💗</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script>
+    const videos = document.querySelectorAll(".video-wrapper video");
+
+    videos.forEach(video => {
+      const wrapper = video.parentElement;
+      const playBtn = wrapper.querySelector(".play-btn");
+
+      playBtn.addEventListener("click", () => {
+        videos.forEach(v => {
+          if (v !== video) {
+            v.pause();
+            v.muted = true;
+            v.parentElement.classList.remove("playing");
+          }
+        });
+
+        video.muted = false;
+        video.play();
+        wrapper.classList.add("playing");
+      });
+    });
+  </script>
+
+</body>
+</html>
